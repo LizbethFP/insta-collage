@@ -1,12 +1,12 @@
-$(document).ready(function() {
-  var $email = $('#email-1');
-  var $password = $('#password-1');
-  var $logIn = $('#btn-enter');
+$(document).ready(() => {
+  const $email = $('#email-1');
+  const $password = $('#password-1');
+  const $logIn = $('#btn-enter');
 
-  var valEmail, valPassword = false;
+  let valEmail, valPassword = false;
 
-  $email.on('keyup', function() {
-    var REGEXEMAIL = /^[a-zA-Z0-9\._-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,3}$/;
+  $email.on('keyup', () => {
+    const REGEXEMAIL = /^[a-zA-Z0-9\._-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,3}$/;
     if (REGEXEMAIL.test($email.val())) {
       // alert('correo correcto');
       valEmail = true;
@@ -17,8 +17,8 @@ $(document).ready(function() {
     console.log(valEmail);
   });
 
-  $password.on('keyup', function() {
-    var REGEXNUMBERS = /^[0-9]+$/;
+  $password.on('keyup', () => {
+    const REGEXNUMBERS = /^[0-9]+$/;
     if ((REGEXNUMBERS.test($password.val())) && ($password.val().length >= 6) && ($password.val() !== '') && ($password.val() !== '123456')) {
       valPassword = true;
       // alert('número correcto');
@@ -29,17 +29,17 @@ $(document).ready(function() {
     console.log(valPassword);
   });
 
-  function activeButton() {
+  activeButton = () => {
     if (valEmail && valPassword) {
       $logIn.attr('disabled', false);
     }
-  }
+  };
 
-  function desactiveButton() {
+  desactiveButton = () => {
     $logIn.attr('disabled', 'disabled');
-  }
+  };
 
-  $logIn.on('click', function() {
+  $logIn.on('click', () => {
     window.location.href = 'views/insta-collage.html';
   });
 });
