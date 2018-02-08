@@ -32,6 +32,7 @@ $(document).ready(() => {
   let activeButton = () => {
     if (valEmail && valPassword) {
       $logIn.attr('disabled', false);
+      $logIn.addClass('active');
     }
   };
 
