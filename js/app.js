@@ -1,9 +1,3 @@
-function begin() {
-  registerUser();
-  enterUser();
-  watcher();
-}
-
 // Initialize Firebase
 var config = {
   apiKey: 'AIzaSyB-xni7hI5FB6b-LDCIiCCNRGdarM7tq-k',
@@ -14,6 +8,12 @@ var config = {
   messagingSenderId: '861844441758'
 };
 firebase.initializeApp(config);
+
+function begin() {
+  registerUser();
+  enterUser();
+  watcher();
+}
 
 function registerUser() {
   var buttonSend = $('#btn-send');
