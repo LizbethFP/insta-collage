@@ -1,0 +1,30 @@
+{
+  "name": "insta-collage",
+  "version": "1.0.0",
+  "description": "Aplicación web que permite hacer collage de imágenes al arrastrarlas. Cuenta con inicio de sesión.",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel --presets env src -d public/js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LizbethFP/insta-collage.git"
+  },
+  "keywords": [
+    "collage",
+    "fotos",
+    "drag",
+    "and",
+    "drop"
+  ],
+  "author": "Aurora Vasquez y Lizbeth Félix",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LizbethFP/insta-collage/issues"
+  },
+  "homepage": "https://github.com/LizbethFP/insta-collage#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  }
+}
