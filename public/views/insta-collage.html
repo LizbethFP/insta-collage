@@ -11,7 +11,7 @@
     <!-- link a fontawesome  -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- link de googlefonts -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Acme|Righteous" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <!-- link para ícono que va en pestaña superior  -->
     <!-- <link rel="shortcut icon" type="image/x-icon" href="assets/icons/favicon/"> -->
     <!-- link main CSS -->
@@ -21,34 +21,63 @@
   </head>
   <body>
     <header>
-      <nav>
-
-      </nav>
+      <p class="text-center info font-weight-bold">Insta-collage</p>
 
     </header>
 
     <main>
-      <section>
+      <section class="mt-5">
         <div class="container">
           <div class="row">
-            <div id="div1" class="collage-div-hor div-1"></div>
-            <div id="div2" class="collage-div-hor div-2"></div>
-            <div id="div3" class="collage-div-ver div-3"></div>
+            <div id="div1" class="col collage-div-hor div-1"></div>
+            <div id="div2" class="col collage-div-hor div-2"></div>
+          </div>
+          <div class="row">
+            <div id="div3" class="col collage-div-ver div-3"></div>
+          </div>
+        </div>
+      </section>
+      <div class="container-fluid mt-3">
+        <div class="row">
+          <div class="col-8 offset-2 col-md-4 offset-md-5">
+            <p class="text-uppercase info">photo booth</p>
           </div>
 
         </div>
-        <img id="drag1" src="https://www.dogalize.com/wp-content/uploads/2017/06/La-sverminazione-e-la-pulizia-del-cucciolo-del-cane-2-800x400-800x400.jpg"   alt="pic-1" draggable ="true">
-        <img src="https://2.bp.blogspot.com/-5V3dRZqLzUs/WK3QFV3fGPI/AAAAAAABVBE/VSOBjzuojkIw150AbHntySRWQbSbrsiPACLcB/s1600/perrito.jpg" alt="pic-2" draggable ="true" id="drag2">
-        <img src="https://www.recreoviral.com/wp-content/uploads/2014/11/7b37687b7b61cfda3d6c416244b4a7ba_650x.jpg" alt="pic-3" draggable ="true" id="drag3">
-        <img src="https://www.petdarling.com/articulos/wp-content/uploads/2016/06/fotos-de-perritos-tiernos.jpg" alt="pic-4" draggable ="true" id="drag4">
-        <img src="https://st-listas.20minutos.es/images/2011-05/287031/2991786_640px.jpg?1305917794" alt="pic-5" draggable ="true" id="drag5">
-        <img src="http://www.cutestpaw.com/wp-content/uploads/2013/12/So-fluffy-Im-gonna-die.....jpg" alt="pic-6" draggable ="true" id="drag6">
-        <img src="https://cdn.thinglink.me/api/image/719239053379108864/1240/10/scaletowidth" alt="pic-6" draggable ="true" id="drag7">
 
-      </section>
+      </div>
+
+      <div class="images-container mt-3 container">
+        <div class="row">
+          <div class="col border">
+            <img src="https://27ldk4j1esh2tto962ds2vk1-wpengine.netdna-ssl.com/wp-content/uploads/dog1-1200x330.jpg" alt="pic-1" draggable ="true" class="img-fluid" id="drag1">
+          </div>
+          <div class="col border">
+            <img src="https://2.bp.blogspot.com/-5V3dRZqLzUs/WK3QFV3fGPI/AAAAAAABVBE/VSOBjzuojkIw150AbHntySRWQbSbrsiPACLcB/s1600/perrito.jpg" alt="pic-2" draggable ="true" class="img-fluid" id="drag2">
+          </div>
+          <div class="col border">
+            <img src="https://27ldk4j1esh2tto962ds2vk1-wpengine.netdna-ssl.com/wp-content/uploads/dog-idioms1-1200x330.jpg" alt="pic-3" draggable ="true" class="img-fluid" id="drag3">
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col border">
+            <img src="https://www.petdarling.com/articulos/wp-content/uploads/2016/06/fotos-de-perritos-tiernos.jpg" alt="pic-4" draggable ="true" class="img-fluid" id="drag4">
+          </div>
+          <div class="col border">
+            <img src="https://27ldk4j1esh2tto962ds2vk1-wpengine.netdna-ssl.com/wp-content/uploads/dog-1200x330.jpg" alt="pic-5" draggable ="true" class="img-fluid" id="drag5">
+          </div>
+          <div class="col border">
+            <img src="https://cdn.thinglink.me/api/image/719239053379108864/1240/10/scaletowidth" alt="pic-6" draggable ="true" class="img-fluid" id="drag6">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+
+
+      </div>
     </main>
 
-    <footer>
+    <footer class="mt-3">
       <p class="text-center">&copy; Insta-collage, 2018</p>
     </footer>
 

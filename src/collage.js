@@ -42,5 +42,5 @@ window.addEventListener('load', () => {
   imgToDrag4.addEventListener('dragstart', drag);
   imgToDrag5.addEventListener('dragstart', drag);
   imgToDrag6.addEventListener('dragstart', drag);
-  imgToDrag7.addEventListener('dragstart', drag);
+  // imgToDrag7.addEventListener('dragstart', drag);
 });
