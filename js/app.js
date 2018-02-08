@@ -1,46 +1,121 @@
-window.addEventListener('load', () => {
-  const divContainer1Drop = document.getElementById('div1');
-  const divContainer2Drop = document.getElementById('div2');
-  const divContainer3Drop = document.getElementById('div3');
-  const divContainer1DragOver = document.querySelector('.div-1');
-  const divContainer2DragOver = document.querySelector('.div-2');
-  const divContainer3DragOver = document.querySelector('.div-3');
-  const imgToDrag1 = document.getElementById('drag1');
-  const imgToDrag2 = document.getElementById('drag2');
-  const imgToDrag3 = document.getElementById('drag3');
-  const imgToDrag4 = document.getElementById('drag4');
-  const imgToDrag5 = document.getElementById('drag5');
-  const imgToDrag6 = document.getElementById('drag6');
-  const imgToDrag7 = document.getElementById('drag7');
+function begin() {
+  registerUser();
+  enterUser();
+  watcher();
+}
 
-  /* PERMITIENDO SOLTAR */
-  allowDrop = (event) => {
-    event.preventDefault();
-  };
+// Initialize Firebase
+var config = {
+  apiKey: 'AIzaSyB-xni7hI5FB6b-LDCIiCCNRGdarM7tq-k',
+  authDomain: 'insta-collage-37aff.firebaseapp.com',
+  databaseURL: 'https://insta-collage-37aff.firebaseio.com',
+  projectId: 'insta-collage-37aff',
+  storageBucket: 'insta-collage-37aff.appspot.com',
+  messagingSenderId: '861844441758'
+};
+firebase.initializeApp(config);
 
-  /* ARRASTRANDO ELEMENTO */
-  drag = (event) => {
-    event.dataTransfer.setData('text', event.target.id);
-  };
+function registerUser() {
+  var buttonSend = $('#btn-send');
+  buttonSend.on('click', function() {
+    var email = $('#email').val();
+    var password = $('#password').val();
 
-  /* SOLTANDO ELEMENTO*/
-  dropImg = (event) => {
-    event.preventDefault();
-    const data = event.dataTransfer.getData('text');
-    event.target.appendChild(document.getElementById(data));
-  };
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then(function() {
+        // Al registrarse el usuario, se pasa la función de verficación de usuario por medio de correo electrónico
+        verify();
+      })
+      .catch(function(error) {
+      // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+      // ...
+      });
+    console.log('diste clic');
+  });
+}
 
-  divContainer1Drop.addEventListener('drop', dropImg);
-  divContainer2Drop.addEventListener('drop', dropImg);
-  divContainer3Drop.addEventListener('drop', dropImg);
-  divContainer1DragOver.addEventListener('dragover', allowDrop);
-  divContainer2DragOver.addEventListener('dragover', allowDrop);
-  divContainer3DragOver.addEventListener('dragover', allowDrop);
-  imgToDrag1.addEventListener('dragstart', drag);
-  imgToDrag2.addEventListener('dragstart', drag);
-  imgToDrag3.addEventListener('dragstart', drag);
-  imgToDrag4.addEventListener('dragstart', drag);
-  imgToDrag5.addEventListener('dragstart', drag);
-  imgToDrag6.addEventListener('dragstart', drag);
-  imgToDrag7.addEventListener('dragstart', drag);
-});
+function enterUser() {
+  var buttonEnter = $('#btn-enter');
+  buttonEnter.on('click', function() {
+    var email = $('#email-1').val();
+    var password = $('#password-1').val();
+
+    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // ...
+    });
+    console.log('accediste');
+  });
+}
+
+/* Observador de inicio de sesión de usuario */
+function watcher() {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      console.log('Existe usuario activo');
+      showLogOutBtn(user);
+      // User is signed in.
+      var displayName = user.displayName;
+      var email = user.email;
+      console.log(email);
+      console.log(user);
+      var emailVerified = user.emailVerified;
+      console.log(emailVerified);
+      var photoURL = user.photoURL;
+      var isAnonymous = user.isAnonymous;
+      var uid = user.uid;
+      var providerData = user.providerData;
+    // ...
+    } else {
+    // User is signed out.
+      console.log('No existe usuario activo');
+    // ...
+    }
+  });
+}
+
+function showLogOutBtn(user) {
+  var user = user;
+  var content = $('.content');
+  if (user.emailVerified) {
+    content.html(`
+      <p class="mt-3">Solo lo ve usuario</p>
+      <button id="log-out">Cerrar sesión</button>
+    `);
+    logOut();
+  }
+}
+
+function logOut() {
+  var logOutBtn = $('#log-out');
+  logOutBtn.on('click', function() {
+    firebase.auth().signOut()
+      .then(function() {
+        console.log('Saliendo...');
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  });
+}
+
+/* ENVIAR CORREO PARA VERIFICAR USUARIO */
+function verify() {
+  var user = firebase.auth().currentUser;
+  user.sendEmailVerification().then(function() {
+  // Email sent.
+    console.log('Enviando correo');
+  }).catch(function(error) {
+  // An error happened.
+    console.log('error');
+  });
+}
+
+
+$(document).ready(begin);
