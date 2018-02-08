@@ -32,13 +32,13 @@ $(document).ready(function () {
     console.log(valPassword);
   });
 
-  activeButton = function activeButton() {
+  var activeButton = function activeButton() {
     if (valEmail && valPassword) {
       $logIn.attr('disabled', false);
     }
   };
 
-  desactiveButton = function desactiveButton() {
+  var desactiveButton = function desactiveButton() {
     $logIn.attr('disabled', 'disabled');
   };
 

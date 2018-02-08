@@ -14,17 +14,17 @@ window.addEventListener('load', () => {
   const imgToDrag7 = document.getElementById('drag7');
 
   /* PERMITIENDO SOLTAR */
-  allowDrop = (event) => {
+  let allowDrop = (event) => {
     event.preventDefault();
   };
 
   /* ARRASTRANDO ELEMENTO */
-  drag = (event) => {
+  let drag = (event) => {
     event.dataTransfer.setData('text', event.target.id);
   };
 
   /* SOLTANDO ELEMENTO*/
-  dropImg = (event) => {
+  let dropImg = (event) => {
     event.preventDefault();
     const data = event.dataTransfer.getData('text');
     event.target.appendChild(document.getElementById(data));

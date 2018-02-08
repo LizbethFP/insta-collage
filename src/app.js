@@ -29,13 +29,13 @@ $(document).ready(() => {
     console.log(valPassword);
   });
 
-  activeButton = () => {
+  let activeButton = () => {
     if (valEmail && valPassword) {
       $logIn.attr('disabled', false);
     }
   };
 
-  desactiveButton = () => {
+  let desactiveButton = () => {
     $logIn.attr('disabled', 'disabled');
   };
 

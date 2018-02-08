@@ -16,17 +16,17 @@ window.addEventListener('load', function () {
   var imgToDrag7 = document.getElementById('drag7');
 
   /* PERMITIENDO SOLTAR */
-  allowDrop = function allowDrop(event) {
+  var allowDrop = function allowDrop(event) {
     event.preventDefault();
   };
 
   /* ARRASTRANDO ELEMENTO */
-  drag = function drag(event) {
+  var drag = function drag(event) {
     event.dataTransfer.setData('text', event.target.id);
   };
 
   /* SOLTANDO ELEMENTO*/
-  dropImg = function dropImg(event) {
+  var dropImg = function dropImg(event) {
     event.preventDefault();
     var data = event.dataTransfer.getData('text');
     event.target.appendChild(document.getElementById(data));
