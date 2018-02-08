@@ -8,7 +8,7 @@ $(document).ready(function() {
   $email.on('keyup', function() {
     var REGEXEMAIL = /^[a-zA-Z0-9\._-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,3}$/;
     if (REGEXEMAIL.test($email.val())) {
-      alert('correo correcto');
+      // alert('correo correcto');
       valEmail = true;
       activeButton();
     } else {
@@ -21,7 +21,7 @@ $(document).ready(function() {
     var REGEXNUMBERS = /^[0-9]+$/;
     if ((REGEXNUMBERS.test($password.val())) && ($password.val().length >= 6) && ($password.val() !== '') && ($password.val() !== '123456')) {
       valPassword = true;
-      alert('número correcto');
+      // alert('número correcto');
       activeButton();
     } else {
       desactiveButton();
