@@ -5,34 +5,41 @@ $(document).ready(function() {
 
   var valEmail, valPassword = false;
 
-
   $email.on('keyup', function() {
     var REGEXEMAIL = /^[a-zA-Z0-9\._-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,3}$/;
     if (REGEXEMAIL.test($email.val())) {
       alert('correo correcto');
       valEmail = true;
+      activeButton();
+    } else {
+      desactiveButton();
     }
     console.log(valEmail);
   });
 
   $password.on('keyup', function() {
     var REGEXNUMBERS = /^[0-9]+$/;
-    if ((REGEXNUMBERS.test($password.val())) && ($password.val().length >= 6) && ($password.val() !== '')) {
+    if ((REGEXNUMBERS.test($password.val())) && ($password.val().length >= 6) && ($password.val() !== '') && ($password.val() !== '123456')) {
       valPassword = true;
       alert('número correcto');
+      activeButton();
+    } else {
+      desactiveButton();
     }
     console.log(valPassword);
   });
 
-  function validation() {
+  function activeButton() {
     if (valEmail && valPassword) {
-      $logIn.addClass('active');
-      $logIn.prop('disabled', false);
+      $logIn.attr('disabled', false);
     }
   }
-  validation();
+
+  function desactiveButton() {
+    $logIn.attr('disabled', 'disabled');
+  }
 
   $logIn.on('click', function() {
-    window.location.href = '../views/insta-collage.html';
+    window.location.href = 'views/insta-collage.html';
   });
 });
