@@ -5,6 +5,43 @@ body {
 }
 
 /* Clases específicas */
+.grad70 {
+  background: linear-gradient( rgb(108,170,134) 45%, rgb(199,125,85));
+}
+
+.vh100 {
+  height: 100vh;
+}
+
+.inst-title {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 40px;
+}
+
+.input-transparency {
+  background-color:  rgba(0,0,0,0.1);
+  border: none;
+}
+
+input::placeholder {
+  color: #E7ECEF!important;
+}
+
+button {
+  background-color: transparent;
+  border: 1px solid #ced4da!important;
+}
+
+.active {
+  color: #E7ECEF!important;
+  background-color: transparent;
+  border: 1px solid #ced4da;
+}
+
+.top-line {
+  border-top: 1px solid #f0f0f0;
+}
+
 .collage-div-hor {
   /* width: 500px; */
   height: 300px;
@@ -25,6 +62,10 @@ body {
   font-weight: 900;
   font-size: 30px;
   color: #274C77;
+}
+
+.white-font {
+  color: #E7ECEF;
 }
 
 .border {
